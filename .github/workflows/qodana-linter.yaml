@@ -13,7 +13,5 @@ jobs:
       - uses: actions/checkout@v3
       - name: 'Qodana Scan'
         uses: JetBrains/qodana-action@v2023.2
-        with:
-          linter: ghcr.io/pontem-network/qodana-move:231
         env:
           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
