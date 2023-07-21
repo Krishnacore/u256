@@ -11,6 +11,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+
+      - name: Get configs
+        run: |
+          wget https://raw.githubusercontent.com/pontem-network/qodana-move/main/config/qodana-inspections-profile.xml
+          wget https://raw.githubusercontent.com/pontem-network/qodana-move/main/config/qodana.yaml
+      
       - name: 'Qodana Scan'
         uses: JetBrains/qodana-action@v2023.2
         env:
