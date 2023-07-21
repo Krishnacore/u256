@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        os: ["222", "223", "231"]
+        version: ["222", "223", "231"]
     
     steps:
       - uses: actions/checkout@v3
