@@ -9,6 +9,10 @@ on:
 jobs:
   qodana:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: ["222", "223", "231"]
+    
     steps:
       - uses: actions/checkout@v3
 
@@ -16,7 +20,7 @@ jobs:
         run: |
           wget https://raw.githubusercontent.com/pontem-network/qodana-move/main/config/qodana-inspections-profile.xml
           wget https://raw.githubusercontent.com/pontem-network/qodana-move/main/config/qodana.yaml
-          ls -la 
+          echo "linter: ghcr.io/pontem-network/qodana-move:${{ matrix.version }}" >> qodana.yaml
           cat qodana.yaml
       
       - name: 'Qodana Scan'
